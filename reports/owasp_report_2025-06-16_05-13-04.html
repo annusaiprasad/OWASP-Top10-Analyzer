@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OWASP Top 10 Analyzer Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .vuln {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-left: 5px solid #007BFF;
+        }
+        .vulnerable {
+            border-left-color: #e74c3c;
+        }
+        .secure {
+            border-left-color: #2ecc71;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .detail {
+            margin-top: 10px;
+        }
+        .timestamp {
+            text-align: center;
+            color: gray;
+            font-size: 0.9em;
+        }
+        .risk-level {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+        .Critical { color: white; background-color: #c0392b; }
+        .High { color: white; background-color: #e67e22; }
+        .Medium { color: white; background-color: #f1c40f; }
+        .Low { color: white; background-color: #2ecc71; }
+    </style>
+</head>
+<body>
+
+    <h1>OWASP Top 10 Vulnerability Report</h1>
+    <p class="timestamp">Generated on 2025-06-16 05:13:04 for: <strong>http://demo.testfire.net</strong></p>
+
+    
+    <div class="vuln secure">
+        <div class="header">
+            Injection (A03)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: green;">Secure</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <p>No injection vulnerabilities found.</p>
+            
+        </div>
+    </div>
+    
+    <div class="vuln secure">
+        <div class="header">
+            Broken Access Control (A01)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: green;">Secure</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 6.5 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>Exposed Admin URLs:</strong> []</li>
+                
+                    <li><strong>Possible IDORs:</strong> []</li>
+                
+                    <li><strong>Role Tampering Success:</strong> False</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Cryptographic Failures (A02)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 6.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>HTTPS Enforcement:</strong> Website does not enforce HTTPS</li>
+                
+                    <li><strong>Weak Cookies Detected:</strong> ['JSESSIONID']</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Security Misconfiguration (A05)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 6.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>Debug Info Leaked:</strong> True</li>
+                
+                    <li><strong>Missing Security Headers:</strong> ['Content-Security-Policy', 'X-Content-Type-Options', 'X-Frame-Options', 'Strict-Transport-Security', 'Referrer-Policy']</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Insecure Design (A04)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.5 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>No Rate Limiting Detected on /login:</strong> True</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Vulnerable & Outdated Components (A06)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.5 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>Leaked Server Info:</strong> {'Server': 'Apache-Coyote/1.1'}</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Auth Failures (A07)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.5 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>Logout Not Implemented:</strong> True</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln secure">
+        <div class="header">
+            Software & Data Integrity Failures (A08)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: green;">Secure</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <p>No integrity issues found in scripts or data sources.</p>
+            
+        </div>
+    </div>
+    
+    <div class="vuln vulnerable">
+        <div class="header">
+            Logging & Monitoring Failures (A09)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: red;">VULNERABLE</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 6.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <ul>
+                
+                    <li><strong>No 403/401 for Protected Paths:</strong> ['http://demo.testfire.net/admin']</li>
+                
+                    <li><strong>Missing Log/Audit Headers:</strong> ['Missing correlation IDs for logging.', 'Missing header protection (X-Content-Type-Options).']</li>
+                
+                </ul>
+            
+        </div>
+    </div>
+    
+    <div class="vuln secure">
+        <div class="header">
+            Server-Side Request Forgery (A10)
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                
+                    <span style="color: green;">Secure</span>
+                
+            </p>
+
+            <p><strong>CVSS Score:</strong> 5.0 <span class="risk-level Medium">Medium</span></p>
+
+            <strong>Details:</strong><br>
+            
+                <p>No SSRF indicators found.</p>
+            
+        </div>
+    </div>
+    
+
+</body>
+</html>

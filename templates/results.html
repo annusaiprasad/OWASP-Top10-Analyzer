@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scan Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="font-family: sans-serif; padding: 40px;">
+    <h1>📊 OWASP Top 10 Results for: {{ target }}</h1>
+
+    {% for result in results %}
+    <div style="border: 1px solid #ccc; padding: 20px; margin: 20px 0;">
+        <h2>{{ result.vulnerability }}</h2>
+        <p><strong>Status:</strong> {% if result.found %}<span style="color: red;">VULNERABLE</span>{% else %}<span style="color: green;">Secure</span>{% endif %}</p>
+        <p><strong>CVSS Score:</strong> {{ result.cvss_score }} ({{ result.risk_level }})</p>
+        <p><strong>Fix Suggestion:</strong> {{ result.fix }}</p>
+
+        {% if result.details is mapping %}
+            <ul>
+            {% for key, val in result.details.items() %}
+                <li><strong>{{ key }}:</strong> {{ val }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ result.details }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+   <h2>🧠 Vulnerability Summary</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-top: 30px;">
+    <div style="flex: 1; min-width: 350px; max-width: 500px;">
+        <canvas id="riskChart"></canvas>
+    </div>
+    <div style="flex: 1; min-width: 350px; max-width: 500px;">
+        <canvas id="categoryChart"></canvas>
+    </div>
+</div>
+
+    <script>
+        const scanData = JSON.parse(`{{ results | tojson | safe }}`);
+
+        const riskData = { "Critical": 0, "High": 0, "Medium": 0, "Low": 0, "Info": 0 };
+        const categories = {};
+
+        scanData.forEach(r => {
+            if (r.found) {
+                riskData[r.risk_level] = (riskData[r.risk_level] || 0) + 1;
+                categories[r.vulnerability] = (categories[r.vulnerability] || 0) + 1;
+            }
+        });
+
+        new Chart(document.getElementById("riskChart"), {
+            type: 'bar',
+            data: {
+                labels: Object.keys(riskData),
+                datasets: [{
+                    label: 'Vulnerabilities by Risk Level',
+                    data: Object.values(riskData),
+                    backgroundColor: ['#c0392b', '#e67e22', '#f1c40f', '#2ecc71', '#3498db']
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("categoryChart"), {
+            type: 'pie',
+            data: {
+                labels: Object.keys(categories),
+                datasets: [{
+                    label: 'Vulnerabilities by OWASP Category',
+                    data: Object.values(categories),
+                    backgroundColor: [
+                        '#e74c3c', '#f39c12', '#8e44ad', '#27ae60', '#2980b9',
+                        '#16a085', '#d35400', '#7f8c8d', '#34495e', '#c0392b'
+                    ]
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

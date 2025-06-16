@@ -1,0 +1,121 @@
+{
+    "target": "http://testphp.vulnweb.com",
+    "timestamp": "20250616_054638",
+    "results": [
+        {
+            "vulnerability": "Injection (A03)",
+            "found": false,
+            "details": "No injection vulnerabilities found.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Broken Access Control (A01)",
+            "found": false,
+            "details": {
+                "Exposed Admin URLs": [],
+                "Possible IDORs": [],
+                "Role Tampering Success": false
+            },
+            "cvss_score": 6.5,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Cryptographic Failures (A02)",
+            "found": true,
+            "details": {
+                "HTTPS Enforcement": "Website does not enforce HTTPS"
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Security Misconfiguration (A05)",
+            "found": true,
+            "details": {
+                "Open Directories": [
+                    "http://testphp.vulnweb.com/images/",
+                    "http://testphp.vulnweb.com/admin/"
+                ],
+                "Missing Security Headers": [
+                    "Content-Security-Policy",
+                    "X-Content-Type-Options",
+                    "X-Frame-Options",
+                    "Strict-Transport-Security",
+                    "Referrer-Policy"
+                ]
+            },
+            "cvss_score": 6.0,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Insecure Design (A04)",
+            "found": true,
+            "details": {
+                "No Rate Limiting Detected on /login": true
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Vulnerable & Outdated Components (A06)",
+            "found": true,
+            "details": {
+                "Leaked Server Info": {
+                    "Server": "nginx/1.19.0",
+                    "X-Powered-By": "PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1"
+                }
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Auth Failures (A07)",
+            "found": true,
+            "details": {
+                "Logout Not Implemented": true
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Software & Data Integrity Failures (A08)",
+            "found": false,
+            "details": "No integrity issues found in scripts or data sources.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Logging & Monitoring Failures (A09)",
+            "found": true,
+            "details": {
+                "No 403/401 for Protected Paths": [
+                    "http://testphp.vulnweb.com/admin"
+                ],
+                "Missing Log/Audit Headers": [
+                    "Missing correlation IDs for logging.",
+                    "Missing header protection (X-Content-Type-Options)."
+                ]
+            },
+            "cvss_score": 6.0,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        },
+        {
+            "vulnerability": "Server-Side Request Forgery (A10)",
+            "found": false,
+            "details": "No SSRF indicators found.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium",
+            "fix": "Follow secure coding best practices for this category."
+        }
+    ]
+}

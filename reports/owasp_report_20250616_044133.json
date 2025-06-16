@@ -1,0 +1,107 @@
+{
+    "target": "https://github.com/digininja/DVWA",
+    "timestamp": "20250616_044133",
+    "results": [
+        {
+            "vulnerability": "Injection (A03)",
+            "found": true,
+            "details": [
+                "Blind boolean-based SQLi detected"
+            ]
+        },
+        {
+            "vulnerability": "Broken Access Control (A01)",
+            "found": true,
+            "details": {
+                "Exposed Admin URLs": [],
+                "Possible IDORs": [],
+                "Role Tampering Success": true
+            }
+        },
+        {
+            "vulnerability": "Cryptographic Failures (A02)",
+            "found": true,
+            "details": {
+                "Weak Cookies Detected": [
+                    "_octo"
+                ]
+            }
+        },
+        {
+            "vulnerability": "Security Misconfiguration (A05)",
+            "found": true,
+            "details": {
+                "Debug Info Leaked": true
+            }
+        },
+        {
+            "vulnerability": "Insecure Design (A04)",
+            "found": true,
+            "details": {
+                "No Rate Limiting Detected on /login": true
+            }
+        },
+        {
+            "vulnerability": "Vulnerable & Outdated Components (A06)",
+            "found": true,
+            "details": {
+                "Leaked Server Info": {
+                    "Server": "github.com"
+                }
+            }
+        },
+        {
+            "vulnerability": "Auth Failures (A07)",
+            "found": true,
+            "details": {
+                "Logout Not Implemented": true
+            }
+        },
+        {
+            "vulnerability": "Software & Data Integrity Failures (A08)",
+            "found": false,
+            "details": "No integrity issues found in scripts or data sources."
+        },
+        {
+            "vulnerability": "Logging & Monitoring Failures (A09)",
+            "found": true,
+            "details": {
+                "Missing Log/Audit Headers": [
+                    "Missing correlation IDs for logging."
+                ]
+            }
+        },
+        {
+            "vulnerability": "Server-Side Request Forgery (A10)",
+            "found": true,
+            "details": {
+                "SSRF-Likely Parameters": [
+                    "url -> http://127.0.0.1",
+                    "url -> http://localhost",
+                    "url -> http://169.254.169.254",
+                    "url -> http://0.0.0.0",
+                    "next -> http://127.0.0.1",
+                    "next -> http://localhost",
+                    "next -> http://169.254.169.254",
+                    "next -> http://0.0.0.0",
+                    "data -> http://127.0.0.1",
+                    "data -> http://localhost",
+                    "data -> http://169.254.169.254",
+                    "data -> http://0.0.0.0",
+                    "image -> http://127.0.0.1",
+                    "image -> http://localhost",
+                    "image -> http://169.254.169.254",
+                    "image -> http://0.0.0.0",
+                    "load -> http://127.0.0.1",
+                    "load -> http://localhost",
+                    "load -> http://169.254.169.254",
+                    "load -> http://0.0.0.0",
+                    "redirect -> http://127.0.0.1",
+                    "redirect -> http://localhost",
+                    "redirect -> http://169.254.169.254",
+                    "redirect -> http://0.0.0.0"
+                ]
+            }
+        }
+    ]
+}

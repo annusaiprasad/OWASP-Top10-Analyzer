@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scanning in Progress...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .loader {
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #3498db;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h2 {
+            color: #333;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+  <body>
+    <h2>Scanning <span id="target">{{ target }}</span></h2>
+    <div style="width: 80%; margin: 20px auto; background: #eee; border-radius: 6px; height: 30px;">
+        <div id="bar" style="height: 100%; width: 0%; background: #3498db; border-radius: 6px;"></div>
+    </div>
+    <p id="status">Initializing...</p>
+
+    <script>
+        const steps = [
+            'Running Injection Scan...',
+            'Checking Access Control...',
+            'Evaluating Cryptographic Failures...',
+            'Detecting Insecure Design...',
+            'Finding Security Misconfigurations...',
+            'Scanning for Outdated Components...',
+            'Testing Authentication Failures...',
+            'Checking Software Integrity...',
+            'Monitoring Logs & Events...',
+            'SSRF and Final Checks...'
+        ];
+
+        let i = 0;
+        const bar = document.getElementById('bar');
+        const status = document.getElementById('status');
+
+        function updateProgress() {
+            if (i < steps.length) {
+                status.textContent = `${steps[i]} (${i + 1} of 10 completed)`;
+                bar.style.width = `${(i + 1) * 10}%`;
+                i++;
+                setTimeout(updateProgress, 1000);
+            } else {
+                window.location.href = `/results?target={{ target }}`;
+            }
+        }
+
+        updateProgress();
+    </script>
+</body>
+
+</body>
+</html>

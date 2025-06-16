@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OWASP Top 10 Analyzer Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .vuln {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-left: 5px solid #007BFF;
+        }
+        .vulnerable {
+            border-left-color: #e74c3c;
+        }
+        .secure {
+            border-left-color: #2ecc71;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .detail {
+            margin-top: 10px;
+        }
+        .timestamp {
+            text-align: center;
+            color: gray;
+            font-size: 0.9em;
+        }
+        .risk-level {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+        .Critical { color: white; background-color: #c0392b; }
+        .High { color: white; background-color: #e67e22; }
+        .Medium { color: white; background-color: #f1c40f; }
+        .Low { color: white; background-color: #2ecc71; }
+    </style>
+</head>
+<body>
+
+    <h1>OWASP Top 10 Vulnerability Report</h1>
+    <p class="timestamp">Generated on {{ timestamp }} for: <strong>{{ target }}</strong></p>
+
+    {% for result in results %}
+    <div class="vuln {% if result.found %}vulnerable{% else %}secure{% endif %}">
+        <div class="header">
+            {{ result.vulnerability }}
+        </div>
+        <div class="detail">
+            <p>
+                <strong>Status:</strong>
+                {% if result.found %}
+                    <span style="color: red;">VULNERABLE</span>
+                {% else %}
+                    <span style="color: green;">Secure</span>
+                {% endif %}
+            </p>
+
+            <p><strong>CVSS Score:</strong> {{ result.cvss_score }} <span class="risk-level {{ result.risk_level }}">{{ result.risk_level }}</span></p>
+
+            <strong>Details:</strong><br>
+            {% if result.details is mapping %}
+                <ul>
+                {% for key, val in result.details.items() %}
+                    <li><strong>{{ key }}:</strong> {{ val }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>{{ result.details }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

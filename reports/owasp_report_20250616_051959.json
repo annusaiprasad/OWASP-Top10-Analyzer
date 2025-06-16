@@ -1,0 +1,110 @@
+{
+    "target": "http://demo.testfire.net",
+    "timestamp": "20250616_051959",
+    "results": [
+        {
+            "vulnerability": "Injection (A03)",
+            "found": false,
+            "details": "No injection vulnerabilities found.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Broken Access Control (A01)",
+            "found": false,
+            "details": {
+                "Exposed Admin URLs": [],
+                "Possible IDORs": [],
+                "Role Tampering Success": false
+            },
+            "cvss_score": 6.5,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Cryptographic Failures (A02)",
+            "found": true,
+            "details": {
+                "HTTPS Enforcement": "Website does not enforce HTTPS",
+                "Weak Cookies Detected": [
+                    "JSESSIONID"
+                ]
+            },
+            "cvss_score": 6.0,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Security Misconfiguration (A05)",
+            "found": true,
+            "details": {
+                "Debug Info Leaked": true,
+                "Missing Security Headers": [
+                    "Content-Security-Policy",
+                    "X-Content-Type-Options",
+                    "X-Frame-Options",
+                    "Strict-Transport-Security",
+                    "Referrer-Policy"
+                ]
+            },
+            "cvss_score": 6.0,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Insecure Design (A04)",
+            "found": true,
+            "details": {
+                "No Rate Limiting Detected on /login": true
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Vulnerable & Outdated Components (A06)",
+            "found": true,
+            "details": {
+                "Leaked Server Info": {
+                    "Server": "Apache-Coyote/1.1"
+                }
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Auth Failures (A07)",
+            "found": true,
+            "details": {
+                "Logout Not Implemented": true
+            },
+            "cvss_score": 5.5,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Software & Data Integrity Failures (A08)",
+            "found": false,
+            "details": "No integrity issues found in scripts or data sources.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Logging & Monitoring Failures (A09)",
+            "found": true,
+            "details": {
+                "No 403/401 for Protected Paths": [
+                    "http://demo.testfire.net/admin"
+                ],
+                "Missing Log/Audit Headers": [
+                    "Missing correlation IDs for logging.",
+                    "Missing header protection (X-Content-Type-Options)."
+                ]
+            },
+            "cvss_score": 6.0,
+            "risk_level": "Medium"
+        },
+        {
+            "vulnerability": "Server-Side Request Forgery (A10)",
+            "found": false,
+            "details": "No SSRF indicators found.",
+            "cvss_score": 5.0,
+            "risk_level": "Medium"
+        }
+    ]
+}

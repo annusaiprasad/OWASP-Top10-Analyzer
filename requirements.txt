@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+selenium
+reportlab
+fpdf
+Jinja2
+rich
