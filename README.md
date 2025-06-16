@@ -98,7 +98,7 @@ Each vulnerability is paired with a practical mitigation tip generated using int
 ---
 
 ## 👨‍💻 Author
-[Your Name](https://www.linkedin.com/in/yourprofile)  
+Devi Venkata Sai Prasad Annu(https://www.linkedin.com/in/dvspa)  
 Master’s in Cybersecurity | OWASP Enthusiast | Python Developer
 
 ---
