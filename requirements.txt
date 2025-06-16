@@ -5,3 +5,5 @@ reportlab
 fpdf
 Jinja2
 rich
+flask
+cvss
