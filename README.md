@@ -3,6 +3,9 @@
 A powerful vulnerability scanner that checks websites for OWASP Top 10 risks using Python, Flask, and AI-powered fix suggestions. Includes real-time progress bar, CVSS scoring, HTML/PDF/JSON reporting, and an interactive dashboard.
 
 ---
+## 🌐 Live Demo
+Try it live: [OWASP Top 10 Analyzer on Render](https://owasp-top10-analyzer.onrender.com)
+
 
 ## 🔍 Features
 
